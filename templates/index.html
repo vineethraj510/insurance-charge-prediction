@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <!-- my bootstrapcdn-->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+     
+
+    <title>Health Care Insurance Charge Prediction </title>
+  </head>
+  <body>
+    
+    <!-- This is for top layout in website  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <center><h1 style="color:white;">Health Insurance Prediction </h1></center>
+      </nav>
+
+
+       
+
+
+                <h4 class="pb-10">Enter Your Information</h4>
+               
+                <form action='/predict' method="POST">
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-3">
+                          <input id="Age" name='age'  placeholder="Enter your Age." class="form-control" type="text" required>
+                        </div>
+                        
+                        <div class="form-group col-md-3">
+                          <input type="text" class="form-control" id="BMI" placeholder="Enter your BMI" name='BMI' required>
+                        </div>
+                      </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                        	<input type="text" class="form-control" id="Children" placeholder="Please enter the number of children(only 0-5)" name='Children' required>
+                        </div>
+                      
+
+                    
+                        <div class="form-group col-md-3">
+                        	<input type="text" class="form-control" id="Smoker" placeholder="Are you a Smoker(1= YES, 0 = No)" name='Smoker' required>
+                        </div>
+	                        </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-3">
+                                  
+                                  <select id="inputState" class="form-control" name='Female' required>
+                                    <option selected>Are you Female?</option>
+                                    <option value='1'> YES</option>
+                                    <option value='0'> NO</option>
+                                  </select>
+                        </div> 
+
+                        <div class="form-group col-md-3">
+                          <input id="NorthEast" name='NorthEast'  placeholder="IF you are from NorthEast Enter 1 or else 0." class="form-control" type="text" required>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-3">
+                          <input id="NorthWest" name='NorthWest'  placeholder="IF you are from NorthWest Enter 1 or else 0." class="form-control" type="text" required>
+                        </div>
+                        
+                        <div class="form-group col-md-3">
+                          <input type="text" class="form-control" id="SouthEast" placeholder="IF you are from SouthEast Enter 1 or else 0." name='SouthEast' required>
+                        </div>
+                      </div>
+                    
+                    
+                    <div class="form-row">
+                        <center><button type="predict" class="btn btn-success">Predict</button></center>
+                    </div>
+
+                </form>
+                <br>
+                {% if prediction %}
+                <h4 style="color:tomato;">Insurance Charges: <b style="color:rgb(6, 182, 44);">{{prediction}}</b></h4>
+                {% endif %}
+            
+
+
+    
